@@ -62,7 +62,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_TRAVIS_HOST', 'localhost'),
             'port' => env('DB_TRAVIS_PORT', '3306'),
-            'database' => env('DB_TRAVIS_DATABASE', 'travis'),
+            'database' => env('DB_TRAVIS_DATABASE', 'travis_testing'),
             'username' => env('DB_TRAVIS_USERNAME', 'root'),
             'password' => env('DB_TRAVIS_PASSWORD', ''),
             'charset' => 'utf8',
