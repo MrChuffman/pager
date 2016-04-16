@@ -58,6 +58,20 @@ return [
             'prefix' => '',
         ],
 
+        'travis' => [
+            'driver' => 'mysql',
+            'host' => env('DB_TRAVIS_HOST', 'localhost'),
+            'port' => env('DB_TRAVIS_PORT', '3306'),
+            'database' => env('DB_TRAVIS_DATABASE', 'travis'),
+            'username' => env('DB_TRAVIS_USERNAME', 'root'),
+            'password' => env('DB_TRAVIS_PASSWORD', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
