@@ -5,10 +5,13 @@ var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     colorguard = require('gulp-colorguard'),
     autoprefixer = require('autoprefixer'),
-    doiuse = require('doiuse');
+    doiuse = require('doiuse'),
+
+    phpunit = require('gulp-phpunit');
 
 var sources = {
-	stylus: './resources/assets/stylus/**/*.styl'
+	stylus: './resources/assets/stylus/**/*.styl',
+    test: ['./tests/**/*.php','./resources/**/*.*','./app/**/*.*']
 }
 
 gulp.task('buildCSS', function () {
@@ -33,10 +36,18 @@ gulp.task('buildCSS', function () {
         .pipe(notify('CSS Build is complete!'));
 });
 
+gulp.task('testPHPUnit', function() {
+	gulp.src('')
+	    .pipe(phpunit('', {clear: true}));
+});
+
 gulp.task('watch', ['buildCSS'], function() {
 	gulp.watch(sources.stylus, ['buildCSS']);
 });
 
+gulp.task('test', ['testPHPUnit'], function() {
+	gulp.watch(sources.test, ['testPHPUnit']);
+});
 
 
 

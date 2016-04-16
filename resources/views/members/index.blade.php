@@ -4,7 +4,7 @@
 <h1 class="text-light">
 	<span class="mif-users"></span>
 	Members	
-	<a href="{{ route('members.create') }}" class="button primary place-right"><span class="mif-plus"></span> Add Member...</a>
+	<a href="{{ route('members.create') }}" id="Member__Index__create_link" class="button primary place-right"><span class="mif-plus"></span> Add Member...</a>
 </h1>
 <hr class="thin bg-grayLighter">
 <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
@@ -49,7 +49,7 @@
 
 			<td>
 				<div class="split-button">
-					<a href="{{ route('members.edit', 1) }}" class="button primary">Edit</a>
+					<a href="{{ route('members.edit', 1) }}" class="button primary" id="Member__Create__edit_{{ $member['id'] }}">Edit</a>
 					<a class="split dropdown-toggle primary"></a>
 					<ul class="split-content d-menu" data-role="dropdown">
 						<li><a href="#">Delete</a></li>					

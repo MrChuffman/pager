@@ -4,24 +4,7 @@
 </div>
 <label for="rank">Rank</label>
 <div class="input-control full-size">
-	<select name="rank" class="select full-size" style="display: none">
-		<optgroup label="Tactical Members">
-			<option value="Firefighter">Firefighter</option>
-			<option value="Probationary">Probationary Firefighter</option>
-			<option value="Lieutenant">Lieutenant</option>
-			<option value="Captain">Captain</option>
-			<option value="Battalion Chief">Battalion Chief</option>
-			<option value="Assistance Chief">Assistance Chief</option>
-			<option value="Chief">Chief</option>
-		</optgroup>
-		<optgroup label="Members">
-			<option value="Cadet">Cadet</option>
-			<option value="Recruit">Recruit</option>
-			<option value="Auxillary">Auxiliary</option>
-			<option value="Medical Officer">Medical Officer</option>
-			<option value="Safety Officer">Safety Officer</option>
-		</optgroup>
-	</select>
+    {!! Form::select('rank', $ranks, old('rank'), ['class' => 'select full-size', 'style' => 'display: none']) !!}
 </div>
 <label for="name">Name</label>
 <div class="input-control text full-size">
@@ -29,28 +12,41 @@
 </div>
 <label for="phone">Phone Number</label>
 <div class="input-control text full-size">
-	<input type="text" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number">
+	<input type="text" id="phone" class="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number">
 </div>
 <label for="carrier">Carrier</label>
 <div class="input-control full-size">
-	<select name="carrier" class="select full-size" style="display: none">
-		<option value="1">AT&amp;T</option>
-		<option value="2">Verizon</option>
-	</select>
+    {!! Form::select('carrier', $carriers, old('carrier'), ['class' => 'select full-size', 'style' => 'display: none']) !!}
 </div>
 <div class="row cells2">
 	<div class="cell">
 		<label class="input-control checkbox">
-			<input type="checkbox" checked>
+			<input type="checkbox" name="rip_runs" value="1" checked>
 			<span class="check"></span>
 			<span class="caption">Receive Rip &amp; Runs</span>
 		</label>
 	</div>
 	<div class="cell">
 		<label class="input-control checkbox">
-			<input type="checkbox" checked>
+			<input type="checkbox" name="notifications" value="1" checked>
 			<span class="check"></span>
 			<span class="caption">Receive Notifications</span>
 		</label>
 	</div>
 </div>
+<label class="input-control checkbox" data-show=".is_admin">
+    <input type="checkbox" name="admin" value="1" />
+    <span class="check"></span>
+    <span class="caption">Can Maintain Members &amp; Send Messages</span> 
+</label>
+<div class="is_admin" style="display: none">
+        <label for="password">Password</label>
+        <div class="input-control full-size">
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        <label for="password_confirmation">Confirm Password</label>
+        <div class="input-control full-size">
+            <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password">
+        </div>
+</div>
+

@@ -11,11 +11,16 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Member::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'admin' => $faker->boolean(),
+        'department_id' => $faker->numberBetween(600,699),
+        'name' => $faker->name(),
+        'phone' => $faker->numberBetween(1000000000,9999999999),
+        'carrier' => $faker->domainName(),
+        'rank' => $faker->randomElement(['Firefighter','Captain','Chief']),
+        'rip_runs' => $faker->boolean(),
+        'notifications' => $faker->boolean(),
+        'password' => bcrypt('password')
     ];
 });

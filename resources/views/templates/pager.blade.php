@@ -20,10 +20,24 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/jquery.dataTables.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/metro/3.0.14/js/metro.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 		<script>
 			$(function() {
 				$('.select').select2();
+                $(".phone").mask("(999) 999-9999");
+
+                $('[data-show]').on('click', function() {
+                    var $this = $(this),
+                    $showEl = $($this.data('show'));
+
+                    if ( $this.find('input').is(':checked') ) {
+                        $showEl.slideDown();   
+                    } else {
+                        $showEl.slideUp();
+                    }
+                });
 			});
 		</script>
+		@include('vendor.flash.message')
 	</body>
 </html>

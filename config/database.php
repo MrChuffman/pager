@@ -52,6 +52,12 @@ return [
             'prefix' => '',
         ],
 
+        'testing' => [
+            'driver' => 'sqlite',
+            'database' => 'storage/testing.sqlite',
+            'prefix' => '',
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
