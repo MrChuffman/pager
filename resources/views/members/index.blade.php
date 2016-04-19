@@ -22,12 +22,12 @@
 	<tbody>
 		@foreach($members as $member)
 		<tr>
-			<td>{{ $member['deptid'] }}</td>
+			<td>{{ $member['department_id'] }}</td>
 			<td>{{ $member['name'] }}</td>
 			<td>{{ $member['phone'] }}</td>
 			<td>{{ $member['carrier'] }}</td>
 
-			@if($member['ripruns'])
+			@if($member['rip_runs'])
 			<td data-sort="1" style="text-align: center">
 				<span class="mif-checkmark fg-green"></span>
 			</td>	
@@ -49,7 +49,7 @@
 
 			<td>
 				<div class="split-button">
-					<a href="{{ route('members.edit', 1) }}" class="button primary" id="Member__Create__edit_{{ $member['id'] }}">Edit</a>
+					<a href="{{ route('members.edit', $member['id']) }}" class="button primary" id="Member__Create__edit_{{ $member['id'] }}">Edit</a>
 					<a class="split dropdown-toggle primary"></a>
 					<ul class="split-content d-menu" data-role="dropdown">
 						<li><a href="#">Delete</a></li>					

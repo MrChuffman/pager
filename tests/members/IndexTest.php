@@ -17,6 +17,11 @@ class IndexTest extends TestCase
 
         $this->visit(route('members.index'))
             ->see($users[0]->name)
+            ->see($users[0]->department_id)
+            ->see($users[0]->phone)
+            ->see($users[0]->carrier)
+            ->see($users[0]->rip_runs)
+            ->see($users[0]->notifications)
             ->see($users[1]->name);
     }
 

@@ -36,7 +36,6 @@ class MemberController extends Controller
          */
         public function store(MemberFormRequest $request)
         {
-
                 $member = Member::create($request->all());
 
                 \Flash::success($member['name'].' was added to the database!');
@@ -45,25 +44,17 @@ class MemberController extends Controller
         }
 
         /**
-         * Display the specified resource.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
-        public function show($id)
-        {
-                //
-        }
-
-        /**
          * Show the form for editing the specified resource.
          *
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function edit($id)
+        public function edit($memberId)
         {
-                //
+            $member = Member::findOrFail($memberId);
+            $member->password = '';
+            
+            return view('members.edit', compact('member'));
         }
 
         /**
@@ -73,9 +64,23 @@ class MemberController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function update(Request $request, $id)
+        public function update(MemberFormRequest $request, $memberId)
         {
-                //
+            $data = $request->except(['_method', '_token', 'password_confirmation']);
+
+            if (empty($data['rip_runs'])) {
+                $data['rip_runs'] = 0;
+            }
+
+            if (empty($data['notifications'])) {
+                $data['notifications'] = 0;
+            }
+
+            Member::where('id', $memberId)->update($data);
+
+            \Flash::success($request->get('name').' was updated.');
+
+            return redirect(route('members.index'));
         }
 
         /**
@@ -84,7 +89,7 @@ class MemberController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function destroy($id)
+        public function destroy($memberId)
         {
                 //
         }

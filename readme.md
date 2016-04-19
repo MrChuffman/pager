@@ -1,7 +1,8 @@
-# pager
-##### Built with Laravel. Tested with Travis.
+# pager 
+##### Built with Laravel. Tested with Travis. 
 A simple application that allows an organization to keep in touch with it's members via text using email to text gateways.
 
+[![Build Status](https://travis-ci.org/MrChuffman/pager.svg?branch=master)](https://travis-ci.org/MrChuffman/pager)
 ---
 
 This was an application built for a fire department in order for them to be able to send out notifications about what is going on around the department. It also receives "Rip and Runs" from dispatch and texts out any incoming runs to members.

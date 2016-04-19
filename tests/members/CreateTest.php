@@ -22,11 +22,11 @@ class CreateTest extends TestCase
             ->type('password', 'password')
             ->type('passfail', 'password_confirmation')
             ->press('Member__Create__submit')
-            ->see('The department id field is required.')
-            ->see('The rank field is required.')
+            ->see('The department ID field is required.')
+            ->see('You must select a rank.')
             ->see('The name field is required.')
             ->see('The phone field is required.')
-            ->see('The carrier field is required.')
+            ->see('You must select a carrier.')
             ->see('The password confirmation does not match.');
     }
 
